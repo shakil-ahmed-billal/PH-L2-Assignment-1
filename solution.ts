@@ -1,16 +1,3 @@
-/*
-Problem 1
-Create a function formatValue that accepts a value which may be a string, number, or boolean, and returns the following based on the value type:
-
-If the input is a string → return the string in uppercase
-If the input is a number → return the number multiplied by 10
-If the input is a boolean → return the opposite value (true → false, false → true)
-
-Requirements:
-You must write the correct type for the function parameter and the return type.
-You must use type checking to handle each case.
-*/
-
 const formatValue = (value: string | number | boolean) => {
   if (typeof value === 'string') {
     return value.toUpperCase();
@@ -28,19 +15,6 @@ const formatValue = (value: string | number | boolean) => {
 
 
 
-
-/*
-Problem 2
-Create a function getLength that accepts a value which may be a string or an array, and returns the length of the value.
-
-If the input is a string → return the number of characters.
-If the input is an array → return the number of elements.
-
-Requirements:
-You must write the correct type for the function parameter and the return type.
-You must use type checking to handle each case (typeof or Array.isArray).
-*/
-
 const getLength = (value: string | any[]) =>{
   if (typeof value === 'string') {
     return value.length;
@@ -52,16 +26,6 @@ const getLength = (value: string | any[]) =>{
 // console.log(getLength('typescript'));
 // console.log(getLength([10, 20, 30, 40]));
 
-
-
-/*
-Problem 3
-Create a Person class with name and age properties. Add a method getDetails that returns a string with the person's name and age.
-
-Requirements:
-You must use a constructor to initialize the properties.
-The getDetails method should return a string in the format: "Name: [name], Age: [age]".
-*/
 
 
 class Person {  name: string;
@@ -83,19 +47,6 @@ const person2 = new Person('Alice', 25);
 
 
 
-/*
-Problem 4
-Create a function filterByRating that accepts an array of items, where each item has the following properties:
-
-title (string)
-rating (number between 0 and 5)
-The function should return a new array containing only the items with a rating of 4 or more.
-
-Requirements:
-You must write the correct type for the function parameter and the return type.
-Do not mutate the original array.
-*/
-
 interface Item {
   title: string;
   rating: number;
@@ -113,15 +64,6 @@ const books: Item[] = [
 
 // console.log(filterByRating(books));
 
-/*
-Problem 5
-Create a function filterActiveUsers that accepts an array of user objects. Each user object contains id, name, email, and isActive properties. The function should return a new array containing only the users whose isActive property is true.
-
-Requirements:
-You must write the correct type for the function parameter and the return type.
-Do not mutate the original array.
-Use type checking if necessary.
-*/
 
 interface User {
   id: number;
@@ -144,10 +86,6 @@ const users : User[] = [
 // console.log(filterActiveUsers(users));
 
 
-/*
-Problem 6
-Then, create a function printBookDetails that accepts an object of type Book and prints its details to the console in the format: "Title: [title], Author: [author], Published: [publishedYear], Available: [Yes/No]".
-*/
 interface Book {
   title: string;
   author: string;
@@ -170,17 +108,6 @@ const myBook: Book = {
 
 
 // printBookDetails(myBook);
-
-
-/*
-Problem 7
-Create a function getUniqueValues that accepts two arrays and returns a new array containing only the unique values from both arrays, without any duplicates.
-
-Requirements:
-You must write the correct type for the function parameter and the return type.
-The function should handle arrays of strings or numbers.
-You are not allowed to use any built-in methods to solve this problem.
-*/
 
 
 const getUniqueValues = <T>(array1: T[], array2: T[]): T[] => {
@@ -208,23 +135,6 @@ const array2 = [3, 4, 5, 6, 7];
 
 // console.log(getUniqueValues(array1, array2));
 
-
-/*
-Problem 8:
-Create a function calculateTotalPrice that accepts an array of product objects. Each product object contains the following properties:
-
-name (string)
-price (number)
-quantity (number)
-discount? (optional number, percentage between 0-100)
-The function should return the total price of all products in the array, taking into account the discount for each product (if provided). If the array is empty, return 0.
-
-Requirements:
-You must write the correct type for the function parameter and the return type.
-Use array methods (map, reduce, etc.) to calculate the total.
-The total price of each product is calculated as: (price * quantity).
-Correctly handle products with and without the discount property.
-*/
 
 interface Product {
   name: string;
