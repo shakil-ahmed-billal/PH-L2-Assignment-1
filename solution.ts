@@ -76,10 +76,10 @@ class Person {  name: string;
 }
 
 const person1 = new Person('John Doe', 30);
-console.log(person1.getDetails());
+// console.log(person1.getDetails());
 
 const person2 = new Person('Alice', 25);
-console.log(person2.getDetails());
+// console.log(person2.getDetails());
 
 
 
@@ -111,7 +111,7 @@ const books: Item[] = [
   { title: 'Book D', rating: 5.0 },
 ];
 
-console.log(filterByRating(books));
+// console.log(filterByRating(books));
 
 /*
 Problem 5
@@ -141,7 +141,7 @@ const users : User[] = [
   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
 
-console.log(filterActiveUsers(users));
+// console.log(filterActiveUsers(users));
 
 
 /*
@@ -170,3 +170,90 @@ const myBook: Book = {
 
 
 // printBookDetails(myBook);
+
+
+/*
+Problem 7
+Create a function getUniqueValues that accepts two arrays and returns a new array containing only the unique values from both arrays, without any duplicates.
+
+Requirements:
+You must write the correct type for the function parameter and the return type.
+The function should handle arrays of strings or numbers.
+You are not allowed to use any built-in methods to solve this problem.
+*/
+
+
+const getUniqueValues = <T>(array1: T[], array2: T[]): T[] => {
+  const result: T[] = [];
+
+  for (let i = 0; i < array1.length; i++) {
+    if (!result.includes(array1[i])) {
+      result.push(array1[i]);
+    }
+  }
+
+  for (let i = 0; i < array2.length; i++) {
+    if (!result.includes(array2[i])) {
+      result.push(array2[i]);
+    }
+  }
+
+  return result;
+}
+
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+
+// console.log(getUniqueValues(array1, array2));
+
+
+/*
+Problem 8:
+Create a function calculateTotalPrice that accepts an array of product objects. Each product object contains the following properties:
+
+name (string)
+price (number)
+quantity (number)
+discount? (optional number, percentage between 0-100)
+The function should return the total price of all products in the array, taking into account the discount for each product (if provided). If the array is empty, return 0.
+
+Requirements:
+You must write the correct type for the function parameter and the return type.
+Use array methods (map, reduce, etc.) to calculate the total.
+The total price of each product is calculated as: (price * quantity).
+Correctly handle products with and without the discount property.
+*/
+
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+const calculateTotalPrice = (products: Product[]) =>{
+
+  const total = products.reduce((sum, product) => {
+    const productTotal = product.price * product.quantity;
+    const discountAmount = product.discount ? (productTotal * product.discount) / 100 : 0;
+    const totalPrice = productTotal - discountAmount;
+
+    console.log(sum)
+    return sum + totalPrice;
+  }, 0); 
+
+  return total;
+
+
+}
+
+const products = [
+  { name: 'Pen', price: 10, quantity: 2 },
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
+// calculateTotalPrice(products);
