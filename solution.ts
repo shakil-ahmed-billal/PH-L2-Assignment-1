@@ -9,9 +9,6 @@ const formatValue = (value: string | number | boolean) => {
 
 }
 
-// console.log(formatValue('hello'));
-// console.log(formatValue(5));
-// console.log(formatValue(true));
 
 
 
@@ -23,13 +20,14 @@ const getLength = (value: string | any[]) =>{
   }  throw new Error('Invalid type');
 }
 
-// console.log(getLength('typescript'));
-// console.log(getLength([10, 20, 30, 40]));
 
 
 
-class Person {  name: string;
+class Person {  
+  
+  name: string;
   age: number;
+
   constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
@@ -38,12 +36,9 @@ class Person {  name: string;
     return `Name: ${this.name}, Age: ${this.age}`;
   }
 }
-
 const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
-
 const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
+
 
 
 
@@ -62,8 +57,6 @@ const books: Item[] = [
   { title: 'Book D', rating: 5.0 },
 ];
 
-// console.log(filterByRating(books));
-
 
 interface User {
   id: number;
@@ -73,17 +66,14 @@ interface User {
 }
 
 const filterActiveUsers = (users: User[]) =>{
-  return users.filter(user => user.isActive);
+  return users.filter(user => user.isActive === true);
 }
-
-
 const users : User[] = [
   { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
   { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
 
-// console.log(filterActiveUsers(users));
 
 
 interface Book {
@@ -97,17 +87,12 @@ function printBookDetails(book: Book): void {
   const availability = book.isAvailable ? 'Yes' : 'No';
   console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${availability}`);
 }
-
-// Sample input
 const myBook: Book = {
   title: 'The Great Gatsby',
   author: 'F. Scott Fitzgerald',
   publishedYear: 1925,
   isAvailable: true,
 };
-
-
-// printBookDetails(myBook);
 
 
 const getUniqueValues = <T>(array1: T[], array2: T[]): T[] => {
@@ -127,13 +112,9 @@ const getUniqueValues = <T>(array1: T[], array2: T[]): T[] => {
 
   return result;
 }
-
-
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
 
-
-// console.log(getUniqueValues(array1, array2));
 
 
 interface Product {
@@ -150,7 +131,6 @@ const calculateTotalPrice = (products: Product[]) =>{
     const discountAmount = product.discount ? (productTotal * product.discount) / 100 : 0;
     const totalPrice = productTotal - discountAmount;
 
-    console.log(sum)
     return sum + totalPrice;
   }, 0); 
 
@@ -158,12 +138,10 @@ const calculateTotalPrice = (products: Product[]) =>{
 
 
 }
-
 const products = [
   { name: 'Pen', price: 10, quantity: 2 },
   { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
   { name: 'Bag', price: 50, quantity: 1, discount: 20 },
 ];
 
-console.log(calculateTotalPrice(products));
-// calculateTotalPrice(products);
+
